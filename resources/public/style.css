@@ -1,0 +1,12 @@
+.banner-pane {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border-width: 0;
+}
+/* thanks to http://www.colourlovers.com/palette/4134762/60s */
+.n-0 { background-color: #F79F79; }
+.n-1 { background-color: #F7D08A; }
+.n-2 { background-color: #D0EFB1; }
+.n-3 { background-color: #87B6A7; }
+.n-4 { background-color: #5B5941; }
