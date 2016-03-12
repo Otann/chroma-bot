@@ -1,19 +1,13 @@
 # chroma-bot
 
-FIXME
+Telegram bot that helps you with colors.
 
-## Prerequisites
+This repository contains code for episodes from my Web Fandango series.
 
-You will need [Leiningen][] 2.0.0 or above installed.
+More information here: http://otann.com/web-fandango/chroma-bot-1/
 
-[leiningen]: https://github.com/technomancy/leiningen
-
-## Running
-
-To start a web server for the application, run:
-
-    lein ring server
+Some proper README about the code will eventually come up.
 
 ## License
 
-Copyright © 2016 FIXME
+Copyright © 2016 Anton Chebotaev
