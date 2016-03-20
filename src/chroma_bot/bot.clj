@@ -13,10 +13,12 @@
    (hex->int (.substring value 2 4))
    (hex->int (.substring value 4 6))])
 
-(defn hex->img [value]
-  (img/generate-file {:width 200
-                      :heigth 200
-                      :rgb (hex->rgb value)}))
+(defn- hex->img [value]
+  "Generates byte-array for png image filled with color"
+  (let [rgb    (hex->rgb value)
+        params {:width 200 :heigth 200 :rgb rgb}
+        bytes  (img/generate-png params)]
+    bytes))
 
 (defn handle-text-message [message]
   (let [text    (:text message)

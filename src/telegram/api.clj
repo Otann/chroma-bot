@@ -39,7 +39,7 @@
   "Send image to the chat"
   [chat-id image]
   (let [url  (str base-url @token "/sendPhoto")
-        form [{:name "chat_id" :content (str chat-id)}
-              {:name "photo"   :content image}]
+        form [{:part-name "chat_id" :content (str chat-id)}
+              {:part-name "photo"   :content image :name "photo.png"}]
         resp (http/post url {:as :json :multipart form})]
     (log/debug "Got response from server" (:body resp))))
