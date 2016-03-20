@@ -7,7 +7,7 @@
             [ring.adapter.jetty :refer [run-jetty]]
 
             [telegram.core :as telegram]
-            [telegram.api :as api]
+            [chroma-bot.bot :as bot]
             [chroma-bot.handler :refer [app]]))
 
 (cfg/define {:port {:description "HTTP port"
@@ -18,17 +18,10 @@
                               :required true
                               :secret true}})
 
-(defn handler
-  "Handles update object that the bot received from a Telegram API"
-  [update]
-  (when-let [message (:message update)]
-    (api/send-message (-> update :message :chat :id)
-                      (str "Hi there! 😊"))))
-
 (defn init []
   (cfg/verify :quit-on-error true)
   (telegram/init! {:token (cfg/get :telegram-token)
-                   :handlers [handler]
+                   :handlers [bot/handler]
                    :polling true}))
 
 (defn ring-init []

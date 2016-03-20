@@ -1,6 +1,7 @@
 (ns telegram.api
   (:require [taoensso.timbre :as log]
-            [clj-http.client :as http]))
+            [clj-http.client :as http])
+  (:import (java.io File)))
 
 (def base-url "https://api.telegram.org/bot")
 
@@ -25,11 +26,20 @@
     (log/debug "Registering WebHook, Telegram returned:" (:body resp))))
 
 (defn send-message
-  "Sends message to user"
+  "Sends message to the chat"
   ([chat-id text] (send-message chat-id {} text))
   ([chat-id options text]
    (log/debug "Sending message" text "to" chat-id)
-   (let [url (str base-url @token "/sendMessage")
+   (let [url   (str base-url @token "/sendMessage")
          query (into {:chat_id chat-id :text text} options)
-         resp (http/get url {:as :json :query-params query})]
+         resp  (http/get url {:as :json :query-params query})]
      (log/debug "Got response from server" (:body resp)))))
+
+(defn send-image
+  "Send image to the chat"
+  [chat-id image]
+  (let [url  (str base-url @token "/sendPhoto")
+        form [{:name "chat_id" :content (str chat-id)}
+              {:name "photo"   :content image}]
+        resp (http/post url {:as :json :multipart form})]
+    (log/debug "Got response from server" (:body resp))))
