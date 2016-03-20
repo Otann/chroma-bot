@@ -1,7 +1,13 @@
+#landing-outer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .banner-pane {
   display: inline-block;
   width: 100px;
-  height: 30px;
+  height: 70px;
   border-width: 0;
 }
 /* thanks to http://www.colourlovers.com/palette/4134762/60s */

@@ -20,7 +20,7 @@
 
 (def home
   (page
-    [:div.ui.container
+    [:div#landing-outer.ui.container
      [:div.ui.vertical.masthead.center.aligned.segment
       [:div.ui.test.container
        [:div.logo
@@ -32,4 +32,11 @@
 
        [:h1.header "Welcome to Chroma Bot"]
        [:h3 "Telegram bot that helps you with colors"]
-       [:a.ui.huge.button {:href "#"} "Start Conversation" [:i.icon.right.arrow]]]]]))
+       [:p
+        [:a.ui.basic.big.button {:href "http://otann.com/projects/chroma-bot/"}
+         "About" [:i.icon.right.home]]
+        [:a.ui.basic.big.button {:href "https://github.com/otann/chroma-bot"}
+         "Source" [:i.icon.right.github]]]
+       [:p
+        [:a.ui.huge.button {:href "https://telegram.me/chromabot"}
+         "Start Conversation" [:i.icon.right.arrow]]]]]]))

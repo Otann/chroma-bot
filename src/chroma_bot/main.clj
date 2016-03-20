@@ -32,8 +32,7 @@
     (init)))
 
 (defn -main [& args]
-
   (cfg/populate-from-env)
-  (cfg/verify :quit-on-error true)
+  (init)
   (log/info "Starting server")
   (run-jetty app {:port (cfg/get :port) :join? false}))
